@@ -1,0 +1,19 @@
+.play {
+  background-color: orange;
+}
+
+.Game_1 {
+  background-color: red;
+}
+
+.connect_four{
+	background-color: green;
+}
+
+.tic_tac_toe {
+  background-color: rgb(150, 150, 255);
+}
+
+.radar {
+  background-color: aqua;
+}
