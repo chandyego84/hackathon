@@ -1,19 +1,191 @@
-.play {
-  background-color: orange;
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
 }
 
-.Game_1 {
-  background-color: red;
+  .no_cursor
+  {
+    cursor:none;
+  }
+  
+  .wheel {
+    position: relative;
+    margin: auto;
+    margin-top: 3%;
+    height: 500px;
+    width: 500px;
+  }
+  
+  .wheel:after{
+    position:absolute;
+    content:"";
+    width: 32px;
+    height: 32px;
+    background: url('fallonPointing.jpeg') no-repeat;
+    background-size: 175% 125%;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .sa {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    border: 8px solid black;
+    overflow: hidden;
+    transition: all ease 5s;
+  }
+  span{
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+    position: absolute;
+  }
+  
+  .spa{
+      width: 50%;
+    height: 50%;
+    display: inline-block;
+    position: absolute;
+    clip-path: polygon(0 92%, 100% 50%, 0 8%);
+    background-color: green;
+    top: 120px;
+    left: 0;
+  }
+  .spb{
+    clip-path: polygon(100% 92%, 0 50%, 100% 8%);
+    background-color: orange;
+    top: 120px;
+    right: 0;
+  }
+  .spc{
+    clip-path: polygon(50% 0%, 8% 100%, 92% 100%);
+    background-color: red;
+    left: 120px;
+    bottom: 0;
+  }
+  .spd{
+    clip-path: polygon(50% 100%, 92% 0, 8% 0);
+    background-color: grey;
+    top: 0px;
+    left: 120px;
+  }
+  
+  .sa2{
+    height: 100%;
+    width: 100%;
+    transform: rotate(-136deg);
+  }
+  
+  span strong{
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    border-radius: 50%;
+    font-size: 12px;
+    text-align: center;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .rotatewheel{
+    position: absolute;
+    margin-left: 25%;
+    margin-bottom: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-500%, 45%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #1361f2;
+    background-color: #fff;
+    color: #1361f2;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .rotatewheel:active{
+    width: 90px;
+    height: 90px;
+    font-size: 20px;
+  }
+  
+  .connect_four{
+      background-color: #eb83e4;
+      width: 100px;
+      height: 25px;
+  }
+  
+  .tic_tac_toe {
+    background-color: #eb83e4;
+    width: 100px;
+    height: 25px;
+  }
+  
+  .radar {
+    background-color: #eb83e4;
+    width: 100px;
+    height: 25px;
+  }
+  
+  .snakes {
+      background-color: #eb83e4;
+      width: 100px;
+      height: 25px;
+  }
+
+  .pong {
+      background-color: #eb83e4;
+      width: 100px;
+      height: 25px;
+  }
+
+body {
+    background-image: url("butterfly-6062819_1920.jpg");
 }
 
-.connect_four{
-	background-color: green;
+.title {
+    text-align: center;
+    font-size: 120px;
+    font-family: cartoon;
+    animation: fire 10s linear infinite;
 }
 
-.tic_tac_toe {
-  background-color: rgb(150, 150, 255);
+@keyframes fire {
+    0% {
+        color: red;
+    }
+    50% {
+        color: orange;
+    }
+    100% {
+        color: red;
+    }
 }
 
-.radar {
-  background-color: aqua;
+@font-face {
+    font-family: cartoon;
+    src: url("Cute Cartoon.woff");
+}
+
+.button_container {
+    height: 200px;
+    position: relative;
+}
+
+.button_center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }

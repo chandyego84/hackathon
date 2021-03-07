@@ -7,26 +7,95 @@
     <link href="Style/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <button type="button" class="play">Play</button>
+    <div class="title_container">
+      <h1 class="title">Cliff Jumpers</h1>
+    </div>
+		<div class="wheel">
+			<div class="sa" id="sa">
+				<div class="sa1">
+					<span class="spa"><strong>Game1</strong></span>
+					<span class="spb"><strong>Game2</strong></span>
+					<span class="spc"><strong>Game3</strong></span>
+					<span class="spd"><strong>Game4</strong></span>
+				</div>
+				<div class="sa2">
+					<span class="spa"><strong>Game1</strong></span>
+					<span class="spb"><strong>Game2</strong></span>
+					<span class="spc"><strong>Game3</strong></span>
+					<span class="spd"><strong>Game4</strong></span>
+    		</div>
+    	</div>
+  	</div>
+	<!--!>
+  <button class="rotatewheel" onclick="magicWheel()">
+  	SPIN ME
+	</button>
+	<!-->
+  <button class="rotatewheel" onclick="magicWheel()">
+  SPIN ME</button>
 
-		<a href="Html/game_1.html">
-      <button type="button" class="Game_1">Game 1</button>
-		</a>
-    
-    <a href="Html/connect_four.html">
-      <button type="button" class="connect_four">Connect Four</button>
-    </a>
+    <div class="button_container">
+      <div class="button_center">
+        <button onclick="window.location.href='Html/connect_four.html';" class="connect_four">Connect Four</button>
+        <button onclick="window.location.href='Html/tic_tac_toe.html';" class="tic_tac_toe">TicTacToe</button>
+        <button onclick="window.location.href='Html/radar.html';" class="radar">Radar</button>
+        <button onclick="window.location.href='Html/snakes.html';" class="snakes">Snakes</button>
+        <button onclick="window.location.href='Html/pong.html';" class="pong">Pong</button>
+      </div>
+    </div>
+    <!--
+    <button disabled="true" id="random_game" onClick="selectGame(dgre)">Test</button>
+    -->
+		<script>
+      var dgre;
+		function magicWheel(){
+			var x = 360;
+			var b = 3600;
+			dgre = Math.floor(Math.random()*(x-b)+b);
+			document.getElementById('sa').style.transform="rotate("+dgre+"deg)";
 
-    <a href="Html/tic_tac_toe.html">
-      <button type="button" class="tic_tac_toe">TicTacToe</button>
-    </a>
-    
-    <a href="Html/radar.html">
-      <button type="button" class="radar">Radar</button>
-    </a>
+      setTimeout(selectGame, 6000);
+      //var button = document.getElementById("random_game");
+      //button.disabled = false; // re-enable button use
+		}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.52.0/phaser.min.js"></script>
-  <script src="Script/script.js"></script>
-  <noscript>Script did not load correctly</noscript>
+    function selectGame()
+    {
+      var game = dgre % 360;
+      if(game <= 22.5)
+      {
+        window.location.href = "Html/connect_four.html";
+      }
+      else if(game <= 90)
+      {
+        window.location.href = "Html/pong.html";
+      }
+      else if(game <= 135)
+			{
+        window.location.href = "Html/radar.html";
+			}
+			else if (game <= 180)
+			{
+        window.location.href = "Html/radar.html";		//snakes
+			}
+			else if (game <= 225)
+			{
+        window.location.href = "Html/snakes.html";
+			}
+			else if (game <= 270)
+			{
+        window.location.href = "Html/tic_tac_toe.html";	// red snakes
+			}
+			else if (game < 315)
+			{
+        window.location.href = "Html/tic_tac_toe.html";
+			}
+			else
+			{
+        window.location.href = "Html/connect_four.html";
+			}
+    }
+	</script>
+      <noscript>Please enable javascript</noscript>
   </body>
 </html>

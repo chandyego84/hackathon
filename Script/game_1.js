@@ -31,9 +31,8 @@ function preload() {
 
 var platforms;
 var player;
-var player2;
 var score = 0;
-var score2 = 0;
+var scoreText;
 
 function create() {
 	this.physics.world.bounds.width = 1450;
@@ -60,15 +59,9 @@ function create() {
 	player.setBounce(0.2);
 	player.setCollideWorldBounds(true);
 	player.body.setGravityY(300);
-
-	player2 = this.physics.add.sprite(950, 450, 'dude');
-	player2.setBounce(0.2);
-	player2.setCollideWorldBounds(true);
-	player2.body.setGravityY(300);
-
+	
 	// collision object to check for collisions btwn player and platforms objects 
 	this.physics.add.collider(player, platforms);
-	this.physics.add.collider(player2, platforms);
 
 	// creation of animations it can use
 	this.anims.create({
@@ -125,34 +118,13 @@ function create() {
 			bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
 		}
 	}
-
-		function collectStar2(player2, star) {
-		star.disableBody(true, true);
-
-		score2 += 10;
-		scoreText2.setText('Player 2: ' + score);
-
-		if (stars.countActive(true) > 12)	// countActive to see if there are still stars alive
-		{
-			var x2 = (player.x < 400) ? Phaser.Math.Between(400, 800) :
-				Phaser.Math.Between(0, 400);
-
-			var bomb = bombs.create(x2, 16, 'bomb');
-			bomb.setBounce(1);
-			bomb.setCollideWorldBounds(true);
-			bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-		}
-		}
 	}
 
 	// check to see if player overlaps w/ star or not
 	scoreText = this.add.text(16, 16, 'Player 1: 0', { fontSize: '32px', fill: '#000' });
-	scoreText2 = this.add.text(950, 16, 'Player 2: 0', { fontSize: '32px', fill: '#000' });
-
 	this.physics.add.overlap(player, stars, collectStar, null, this);
-	this.physics.add.overlap(player2, stars, collectStar, null, this);
 
-	// enemies
+	// "enemies"
 	bombs = this.physics.add.group();
 	this.physics.add.collider(bombs, platforms);
 
@@ -164,7 +136,7 @@ function create() {
 		gameOver = true;
 	}
 	this.physics.add.collider(player, bombs, hitBomb, null, this);
-}
+
 
 function update() {
 	if (cursors.left.isDown) {
